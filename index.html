@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Injector demo</title>
+</head>
+<body>
+	<script type="text/javascript" src = "Injector.js"></script>
+	<script type="text/javascript">
+		
+		var WelcomeController = function(Greeter){
+			console.log( Greeter.greet() );
+		},
+		robertGreeter = {
+			greet: function(){
+				console.log('This is a robert  saying - welcome');
+			}
+		},
+		humanGreeter = {
+			greet: function(){
+				console.log('This is a human saying, Welcome ');
+			}
+		};
+
+		Injector.register('Greeter', humanGreeter);
+		Injector.process(WelcomeController);
+
+
+
+	</script>
+</body>
+</html>
